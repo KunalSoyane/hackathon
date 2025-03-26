@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Management System</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <h2>Complaint System</h2>
+      <ul>
+        <li><a href="#submit-complaint"><i class="fas fa-pencil-alt"></i> Submit Complaint</a></li>
+        <li><a href="#all-complaints"><i class="fas fa-list"></i> All Complaints</a></li>
+        <li><a href="#track-complaint"><i class="fas fa-search"></i> Track Complaint</a></li>
+        <li><a href="#" id="registerButton"><i class="fas fa-user"></i> Register</a></li>
+      </ul>
+      <button class="close-btn" id="close-btn">×</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <button class="menu-btn" id="menu-btn"><i class="fas fa-bars"></i></button>
+        <h1>Complaint Management System</h1>
+      </header>
+      
+      <!-- Submit Complaint Section -->
+      <div class="form-section" id="submit-complaint">
+        <h2>Submit a Complaint</h2>
+        <form id="complaintForm">
+          <select id="category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Hygiene and Cleanliness">Hygiene and Cleanliness</option>
+            <option value="Rules and Regulation">Rules and Regulation</option>
+            <option value="Staff and Faculty">Staff and Faculty</option>
+            <option value="Food">Food</option>
+            <option value="Safety">Safety</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <input type="text" id="title" placeholder="Complaint Title" required />
+          <textarea id="description" placeholder="Complaint Description" required></textarea>
+
+          <div>
+            <label for="revealIdentityYes">Do you want to reveal your identity?</label>
+            <div class="radio-group">
+              <label for="revealIdentityYes">Yes</label>
+              <input type="radio" id="revealIdentityYes" name="revealIdentity" value="yes">
+              <label for="revealIdentityNo">No</label>
+              <input type="radio" id="revealIdentityNo" name="revealIdentity" value="no" checked>
+            </div>
+          </div>
+
+          <div id="identityFields" style="display: none;">
+            <input type="text" id="name" placeholder="Your Name" />
+            <select id="branch">
+              <option value="" disabled selected>Select Branch</option>
+              <option value="Computer Science">Computer Science</option>
+              <option value="Information Technology">Information Technology</option>
+              <option value="Mechanical">Mechanical</option>
+              <option value="Electronic and Telecommunication">Electronic and Telecommunication</option>
+              <option value="Instrumental">Instrumental</option>
+              <option value="Electrical">Electrical</option>
+            </select>
+            <select id="year">
+              <option value="" disabled selected>Select Year</option>
+              <option value="F.E.">F.E.</option>
+              <option value="S.E.">S.E.</option>
+              <option value="T.E.">T.E.</option>
+              <option value="B.E.">B.E.</option>
+            </select>
+            <input type="email" id="email" placeholder="Your Email" />
+            <input type="tel" id="phone" placeholder="Your Phone Number" />
+          </div>
+
+          <button type="submit">Submit Complaint</button>
+        </form>
+      </div>
+
+      <!-- Track Complaint Section -->
+      <div class="form-section" id="track-complaint">
+        <h2>Track Your Complaint</h2>
+        <input type="text" id="complaintId" placeholder="Enter Complaint ID">
+        <button onclick="trackComplaint()">Track Complaint</button>
+        <div id="complaintDetails"></div>
+      </div>
+
+      <div class="complaints-section" id="all-complaints">
+        <h2>All Complaints</h2>
+        <div id="complaintsList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
